@@ -1,4 +1,5 @@
 // https://uc.whu.edu.cn/xl/a2021_2022nxl.htm
+// https://www.whu.edu.cn/info/1118/18862.htm
 
 import { createEvents, EventAttributes } from 'ics';
 import { writeFileSync } from 'fs';
@@ -7,8 +8,8 @@ import './utils.js';
 let calendar_name = '武汉大学 2021 - 2022 学年校历';
 
 let events : EventAttributes[] = [{
-  title: '所有本科生和现有研究生开始上课',
-  description: null,
+  title: '所有本科生和在籍研究生开始上课',
+  description: '时间调整见：https://www.whu.edu.cn/info/1118/18862.htm',
   busyStatus: 'FREE',
   start: [2021, 9, 6],
   end: [2021, 9, 7],
@@ -17,27 +18,31 @@ let events : EventAttributes[] = [{
 
 events.push({
   title: '本科新生注册',
-  description: '请仔细对照录取通知书上的要求准备好材料。',
+  description: '请仔细对照录取通知书上的要求准备好材料。时间调整见：https://www.whu.edu.cn/info/1118/18862.htm',
   busyStatus: 'FREE',
-  start: [2021, 8, 19],
-  end: [2021, 8, 20]
+  // start: [2021, 8, 19],
+  // end: [2021, 8, 20]
+  start: [2021, 9, 2],
+  end: [2021, 9, 3]
 })
 
 events.push({
   title: '本科生新生入学教育',
-  description: null,
+  description: '时间调整见：https://www.whu.edu.cn/info/1118/18862.htm',
   busyStatus: 'FREE',
-  start: [2021, 8, 20],
-  end: [2021, 8, 21]
+  // start: [2021, 8, 20],
+  // end: [2021, 8, 21]
+  start: [2021, 9, 3],
+  end: [2021, 9, 6]
 })
 
-events.push({
-  title: '军训',
-  description: null,
-  busyStatus: 'FREE',
-  start: [2021, 8, 21],
-  end: [2021, 9, 5]
-})
+// events.push({
+//   title: '军训',
+//   description: null,
+//   busyStatus: 'FREE',
+//   start: [2021, 8, 21],
+//   end: [2021, 9, 5]
+// })
 
 events.push({
   title: '研究生返校注册',
