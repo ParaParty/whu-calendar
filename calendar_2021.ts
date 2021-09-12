@@ -1,5 +1,6 @@
 // https://uc.whu.edu.cn/xl/a2021_2022nxl.htm
 // https://www.whu.edu.cn/info/1118/18862.htm
+// http://uc.whu.edu.cn/info/1039/12145.htm
 
 import { createEvents, EventAttributes } from 'ics';
 import { writeFileSync } from 'fs';
@@ -106,19 +107,88 @@ for (let i = 0; i < 18; i++) {
 
 events.push({
   title: '中秋节假期',
-  description: '调休细节日后更新',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 9, 21],
   end: [2021, 9, 22]
 })
 
 events.push({
+  title: '[中秋调休] 第 3 周周一',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
+  busyStatus: 'FREE',
+  start: [2021, 9, 18],
+  end: [2021, 9, 19]
+})
+
+events.push({
+  title: '[中秋调休] 第 2 周周六',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
+  busyStatus: 'FREE',
+  start: [2021, 9, 20],
+  end: [2021, 9, 21]
+})
+
+
+
+
+events.push({
   title: '国庆节假期',
-  description: '调休细节日后更新',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 10, 1],
   end: [2021, 10, 4]
 })
+
+events.push({
+  title: '[国庆调休] 第 5 周周三',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
+  busyStatus: 'FREE',
+  start: [2021, 9, 26],
+  end: [2021, 9, 27]
+})
+
+events.push({
+  title: '[国庆调休] 第 4 周周日',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
+  busyStatus: 'FREE',
+  start: [2021, 10, 6],
+  end: [2021, 10, 7]
+})
+
+events.push({
+  title: '[国庆调休] 第 4 周周六',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
+  busyStatus: 'FREE',
+  start: [2021, 10, 4],
+  end: [2021, 10, 5]
+})
+
+events.push({
+  title: '[国庆调休] 第 5 周周日',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
+  busyStatus: 'FREE',
+  start: [2021, 10, 5],
+  end: [2021, 10, 6]
+})
+
+events.push({
+  title: '[国庆调休] 第 5 周周四',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
+  busyStatus: 'FREE',
+  start: [2021, 10, 9],
+  end: [2021, 10, 10]
+})
+
+events.push({
+  title: '[国庆调休] 第 5 周周六',
+  description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
+  busyStatus: 'FREE',
+  start: [2021, 10, 7],
+  end: [2021, 10, 8]
+})
+
+
 
 events.push({
   title: '校运会',
