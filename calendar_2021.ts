@@ -39,7 +39,7 @@ events.push({
 
 // events.push({
 //   title: '军训',
-//   description: null,
+//   description: '',
 //   busyStatus: 'FREE',
 //   start: [2021, 8, 21],
 //   end: [2021, 9, 5]
@@ -47,7 +47,7 @@ events.push({
 
 events.push({
   title: '研究生返校注册',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2021, 9, 3],
   end: [2021, 9, 4]
@@ -55,7 +55,7 @@ events.push({
 
 events.push({
   title: '本科生返校注册',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2021, 9, 5],
   end: [2021, 9, 6]
@@ -71,7 +71,7 @@ events.push({
 
 events.push({
   title: '研究生新生入学教育',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2021, 9, 12],
   end: [2021, 9, 13]
@@ -79,7 +79,7 @@ events.push({
 
 events.push({
   title: '研究生新生开始上课',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2021, 9, 13],
   end: [2021, 9, 14]
@@ -96,7 +96,7 @@ for (let i = 0; i < 18; i++) {
 
   events.push({
     title: `[1] 第 ${i + 1} 周`,
-    description: null,
+    description: '',
     busyStatus: 'FREE',
     start: weekStart.convertToICSDate(),
     end: weekEnd.convertToICSDate()
@@ -192,7 +192,7 @@ events.push({
 
 events.push({
   title: '校运会',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2021, 11, 5],
   end: [2021, 11, 7]
@@ -200,7 +200,7 @@ events.push({
 
 events.push({
   title: '元旦假期',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2022, 1, 1],
   end: [2022, 1, 2]
@@ -208,7 +208,7 @@ events.push({
 
 events.push({
   title: '春节假期',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2022, 2, 1],
   end: [2022, 2, 2]
@@ -216,7 +216,7 @@ events.push({
 
 events.push({
   title: '考试周',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2021, 12, 26],
   end: [2022, 1, 9]
@@ -240,7 +240,7 @@ for (let i = 0; i < 18; i++) {
 
   events.push({
     title: `[2] 第 ${i + 1} 周`,
-    description: null,
+    description: '',
     busyStatus: 'FREE',
     start: weekStart.convertToICSDate(),
     end: weekEnd.convertToICSDate()
@@ -252,7 +252,7 @@ for (let i = 0; i < 18; i++) {
 
 events.push({
   title: '第二学期返校注册',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2022, 2, 13],
   end: [2022, 2, 14]
@@ -260,7 +260,7 @@ events.push({
 
 events.push({
   title: '第二学期开始上课',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2022, 2, 14],
   end: [2022, 2, 15]
@@ -292,7 +292,7 @@ events.push({
 
 events.push({
   title: '第二学期考试周',
-  description: null,
+  description: '',
   busyStatus: 'FREE',
   start: [2022, 6, 5],
   end: [2022, 6, 19]
@@ -306,7 +306,7 @@ for (let i = 0; i < 4; i++) {
 
   events.push({
     title: `[3] 第 ${i + 1} 周`,
-    description: null,
+    description: '',
     busyStatus: 'FREE',
     start: weekStart.convertToICSDate(),
     end: weekEnd.convertToICSDate()
@@ -317,7 +317,7 @@ for (let i = 0; i < 4; i++) {
 
 // events.push({
 //   title: '第三学期',
-//   description: null,
+//   description: '',
 //   busyStatus: 'FREE',
 //   start: [2021, 6, 19],
 //   end: [2022, 7, 17]
