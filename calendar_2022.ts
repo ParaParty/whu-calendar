@@ -1,4 +1,5 @@
 // https://uc.whu.edu.cn/xl/a2022_2023nxl.htm
+// 五一调休：https://uc.whu.edu.cn/info/1520/16195.htm
 
 import { createEvents, EventAttributes } from "ics";
 import { writeFileSync } from "fs";
