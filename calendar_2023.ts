@@ -1,3 +1,5 @@
+// https://uc.whu.edu.cn/info/1687/16527.htm
+
 import { createEvents, EventAttributes } from "ics";
 import { writeFileSync } from "fs";
 import { uidGenerateFactory } from "./utils.js";
@@ -8,11 +10,11 @@ let uidGenerator = uidGenerateFactory("whu-calendar-2023");
 let events: EventAttributes[] = [
   {
     uid: uidGenerator("class-begin"),
-    title: "所有本科生和在籍研究生开始上课",
+    title: "除本科新生外所有本科生和在籍研究生开始上课",
     description: "",
     busyStatus: "FREE",
-    start: [2023, 9, 10],
-    end: [2023, 9, 11],
+    start: [2023, 9, 11],
+    end: [2023, 9, 12],
     calName: calendar_name,
   },
 ];
@@ -37,30 +39,30 @@ events.push({
 
 events.push({
   uid: uidGenerator("military-training"),
-  title: "军训",
+  title: "新生军训",
   description: "",
   busyStatus: "FREE",
   start: [2023, 8, 27],
-  end: [2023, 9, 16],
+  end: [2023, 9, 17],
 });
 
 events.push({
   uid: uidGenerator("master-registration"),
-  title: "研究生返校注册",
+  title: "本科生、研究生返校注册",
   description: "",
   busyStatus: "FREE",
   start: [2023, 9, 10],
   end: [2023, 9, 11],
 });
 
-events.push({
-  uid: uidGenerator("undergraduate-registration"),
-  title: "本科生返校注册",
-  description: "",
-  busyStatus: "FREE",
-  start: [2023, 9, 10],
-  end: [2023, 9, 11],
-});
+// events.push({
+//   uid: uidGenerator("undergraduate-registration"),
+//   title: "本科生返校注册",
+//   description: "",
+//   busyStatus: "FREE",
+//   start: [2023, 9, 10],
+//   end: [2023, 9, 11],
+// });
 
 events.push({
   uid: uidGenerator("master-freshman-registration"),
@@ -80,14 +82,14 @@ events.push({
   end: [2023, 9, 11],
 });
 
-events.push({
-  uid: uidGenerator("master-freshman-class-begin"),
-  title: "研究生新生开始上课",
-  description: "",
-  busyStatus: "FREE",
-  start: [2023, 9, 11],
-  end: [2023, 9, 12],
-});
+// events.push({
+//   uid: uidGenerator("master-freshman-class-begin"),
+//   title: "研究生新生开始上课",
+//   description: "",
+//   busyStatus: "FREE",
+//   start: [2023, 9, 11],
+//   end: [2023, 9, 12],
+// });
 
 ////////////////////////////////////////////////////////////////
 
@@ -193,11 +195,11 @@ events.push({
 
 events.push({
   uid: uidGenerator("school-sports-meeting"),
-  title: "校运会",
+  title: "校运会（11月2日下午-11月4日）",
   description: "",
   busyStatus: "FREE",
   start: [2023, 11, 2],
-  end: [2023, 11, 4],
+  end: [2023, 11, 5],
 });
 
 events.push({
@@ -224,7 +226,7 @@ events.push({
   description: "",
   busyStatus: "FREE",
   start: [2024, 1, 7],
-  end: [2024, 1, 20],
+  end: [2024, 1, 21],
 });
 
 events.push({
@@ -233,7 +235,7 @@ events.push({
   description: "教职工寒假执行学校通知。",
   busyStatus: "FREE",
   start: [2024, 1, 21],
-  end: [2024, 2, 24],
+  end: [2024, 2, 25],
 });
 
 ////////////////////////////////////////////////////////////////
@@ -361,7 +363,7 @@ events.push({
   description: "",
   busyStatus: "FREE",
   start: [2024, 6, 16],
-  end: [2024, 6, 29],
+  end: [2024, 6, 30],
 });
 
 ////////////////////////////////////////////////////////////////
