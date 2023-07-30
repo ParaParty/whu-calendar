@@ -47,7 +47,7 @@ events.push({
 });
 
 events.push({
-  uid: uidGenerator("master-registration"),
+  uid: uidGenerator("undergraduate-master-registration"),
   title: "本科生、研究生返校注册",
   description: "",
   busyStatus: "FREE",
@@ -82,14 +82,14 @@ events.push({
   end: [2023, 9, 11],
 });
 
-// events.push({
-//   uid: uidGenerator("master-freshman-class-begin"),
-//   title: "研究生新生开始上课",
-//   description: "",
-//   busyStatus: "FREE",
-//   start: [2023, 9, 11],
-//   end: [2023, 9, 12],
-// });
+events.push({
+  uid: uidGenerator("undergraduate-freshman-class-begin"),
+  title: "本科生新生开始上课",
+  description: "",
+  busyStatus: "FREE",
+  start: [2023, 9, 18],
+  end: [2023, 9, 19],
+});
 
 ////////////////////////////////////////////////////////////////
 
@@ -397,8 +397,8 @@ events.push({
   title: "暑假",
   description: "教职工暑假执行学校通知",
   busyStatus: "FREE",
-  start: [2023, 7, 28],
-  end: [2023, 9, 7],
+  start: [2024, 7, 28],
+  end: [2024, 9, 8],
 });
 
 createEvents(events, async (error, value) => {
