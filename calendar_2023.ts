@@ -96,8 +96,8 @@ events.push({
 /// 2023-2024学年第一学期于2023年9月10日至2023年1月20日，教学周共19周。
 
 for (let i = 0; i < 19; i++) {
-  let weekStart = new Date(2023, 9, 10).addWeek(i);
-  let weekEnd = new Date(2023, 9, 10).addWeek(i + 1);
+  let weekStart = new Date(2023, 8, 10).addWeek(i);
+  let weekEnd = new Date(2023, 8, 10).addWeek(i + 1);
 
   events.push({
     uid: uidGenerator(`term-1-week-${i + 1}`),
@@ -240,11 +240,11 @@ events.push({
 
 ////////////////////////////////////////////////////////////////
 
-/// 2023-2023学年第二学期于2023年2月25日至2023年6月29日，教学周共18周。
+/// 2023-2024学年第二学期于2023年2月25日至2023年6月29日，教学周共18周。
 
 for (let i = 0; i < 18; i++) {
-  let weekStart = new Date(2024, 2, 25).addWeek(i);
-  let weekEnd = new Date(2024, 2, 25).addWeek(i + 1);
+  let weekStart = new Date(2024, 1, 25).addWeek(i);
+  let weekEnd = new Date(2024, 1, 25).addWeek(i + 1);
 
   events.push({
     uid: uidGenerator(`term-2-week-${i + 1}`),
@@ -369,8 +369,8 @@ events.push({
 ////////////////////////////////////////////////////////////////
 
 for (let i = 0; i < 4; i++) {
-  let weekStart = new Date(2024, 6, 30).addWeek(i);
-  let weekEnd = new Date(2024, 6, 30).addWeek(i + 1);
+  let weekStart = new Date(2024, 5, 30).addWeek(i);
+  let weekEnd = new Date(2024, 5, 30).addWeek(i + 1);
 
   events.push({
     uid: uidGenerator(`term-3-week-${i + 1}`),
