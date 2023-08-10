@@ -30,7 +30,7 @@ events.push({
 
 events.push({
   uid: uidGenerator("undergraduate-freshman-before-class-begin"),
-  title: "本科生新生入学教育",
+  title: "本科生新生入学教育开始",
   description: "",
   busyStatus: "FREE",
   start: [2023, 8, 26],
@@ -48,7 +48,7 @@ events.push({
 
 events.push({
   uid: uidGenerator("undergraduate-master-registration"),
-  title: "本科生、研究生返校注册",
+  title: "本科生老生、研究生老生返校注册",
   description: "",
   busyStatus: "FREE",
   start: [2023, 9, 10],
@@ -75,7 +75,7 @@ events.push({
 
 events.push({
   uid: uidGenerator("master-freshman-before-class-begin"),
-  title: "研究生新生入学教育",
+  title: "研究生新生入学教育开始",
   description: "",
   busyStatus: "FREE",
   start: [2023, 9, 10],
