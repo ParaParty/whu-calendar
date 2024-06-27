@@ -43,7 +43,7 @@ events.push({
   description: "",
   busyStatus: "FREE",
   start: [2024, 9, 3],
-  end: [2024, 9, 22],
+  end: [2024, 9, 23],
 });
 
 events.push({
