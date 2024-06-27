@@ -3,7 +3,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "ics": "^2.29.0",
+    "ics": "^2.44.0",
     "typescript": "^5.1.6"
   },
   "devDependencies": {
