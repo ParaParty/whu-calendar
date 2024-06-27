@@ -55,15 +55,6 @@ events.push({
   end: [2024, 9, 9],
 });
 
-// events.push({
-//   uid: uidGenerator("undergraduate-registration"),
-//   title: "本科生返校注册",
-//   description: "",
-//   busyStatus: "FREE",
-//   start: [2024, 9, 10],
-//   end: [2024, 9, 11],
-// });
-
 events.push({
   uid: uidGenerator("master-freshman-registration"),
   title: "研究生新生注册",
@@ -120,22 +111,6 @@ events.push({
   end: [2024, 9, 18],
 });
 
-// events.push({
-//   title: '[中秋调休] 第 3 周周一',
-//   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
-//   busyStatus: 'FREE',
-//   start: [2024, 9, 18],
-//   end: [2024, 9, 19]
-// })
-
-// events.push({
-//   title: '[中秋调休] 第 2 周周六',
-//   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
-//   busyStatus: 'FREE',
-//   start: [2024, 9, 20],
-//   end: [2024, 9, 21]
-// })
-
 events.push({
   uid: uidGenerator("national-day-holiday"),
   title: "国庆节假期",
@@ -144,54 +119,6 @@ events.push({
   start: [2024, 10, 1],
   end: [2024, 10, 4],
 });
-
-// events.push({
-//   title: '[国庆调休] 第 5 周周三',
-//   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
-//   busyStatus: 'FREE',
-//   start: [2024, 9, 26],
-//   end: [2024, 9, 27]
-// })
-
-// events.push({
-//   title: '[国庆调休] 第 4 周周日',
-//   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
-//   busyStatus: 'FREE',
-//   start: [2024, 10, 6],
-//   end: [2024, 10, 7]
-// })
-
-// events.push({
-//   title: '[国庆调休] 第 4 周周六',
-//   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
-//   busyStatus: 'FREE',
-//   start: [2024, 10, 4],
-//   end: [2024, 10, 5]
-// })
-
-// events.push({
-//   title: '[国庆调休] 第 5 周周日',
-//   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
-//   busyStatus: 'FREE',
-//   start: [2024, 10, 5],
-//   end: [2024, 10, 6]
-// })
-
-// events.push({
-//   title: '[国庆调休] 第 5 周周四',
-//   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
-//   busyStatus: 'FREE',
-//   start: [2024, 10, 9],
-//   end: [2024, 10, 10]
-// })
-
-// events.push({
-//   title: '[国庆调休] 第 5 周周六',
-//   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
-//   busyStatus: 'FREE',
-//   start: [2024, 10, 7],
-//   end: [2024, 10, 8]
-// })
 
 events.push({
   uid: uidGenerator("school-sports-meeting"),
@@ -294,60 +221,6 @@ events.push({
   end: [2025, 5, 2],
 });
 
-// events.push({
-//     uid: uidGenerator("may-day-holiday-take-day-off-1"),
-//     title: "[劳动节调休]十二周周二",
-//     description: "调休通知见：https://uc.whu.edu.cn/info/1520/16195.htm",
-//     busyStatus: "FREE",
-//     start: [2024, 4, 23],
-//     end: [2024, 4, 24],
-// });
-
-// events.push({
-//     uid: uidGenerator("may-day-holiday-take-day-off-2"),
-//     title: "[劳动节调休]十一周周六",
-//     description: "调休通知见：https://uc.whu.edu.cn/info/1520/16195.htm",
-//     busyStatus: "FREE",
-//     start: [2024, 4, 29],
-//     end: [2024, 4, 30],
-// });
-
-// events.push({
-//     uid: uidGenerator("may-day-holiday-take-day-off-3"),
-//     title: "[劳动节调休]十二周周日",
-//     description: "调休通知见：https://uc.whu.edu.cn/info/1520/16195.htm",
-//     busyStatus: "FREE",
-//     start: [2024, 4, 30],
-//     end: [2024, 5, 1],
-// });
-
-// events.push({
-//     uid: uidGenerator("may-day-holiday-take-day-off-4"),
-//     title: "[劳动节调休]十一周周日",
-//     description: "调休通知见：https://uc.whu.edu.cn/info/1520/16195.htm",
-//     busyStatus: "FREE",
-//     start: [2024, 5, 2],
-//     end: [2024, 5, 3],
-// });
-
-// events.push({
-//     uid: uidGenerator("may-day-holiday-take-day-off-5"),
-//     title: "[劳动节调休]十二周周六",
-//     description: "调休通知见：https://uc.whu.edu.cn/info/1520/16195.htm",
-//     busyStatus: "FREE",
-//     start: [2024, 5, 3],
-//     end: [2024, 5, 4],
-// });
-
-// events.push({
-//     uid: uidGenerator("may-day-holiday-take-day-off-6"),
-//     title: "[劳动节调休]十二周周三",
-//     description: "调休通知见：https://uc.whu.edu.cn/info/1520/16195.htm",
-//     busyStatus: "FREE",
-//     start: [2024, 5, 6],
-//     end: [2024, 5, 7],
-// });
-
 events.push({
   uid: uidGenerator("dragon-boat-festival-holiday"),
   title: "端午节",
@@ -383,14 +256,6 @@ for (let i = 0; i < 4; i++) {
 }
 
 ////////////////////////////////////////////////////////////////
-
-// events.push({
-//   title: '第三学期',
-//   description: '',
-//   busyStatus: 'FREE',
-//   start: [2024, 6, 19],
-//   end: [2024, 7, 17]
-// })
 
 events.push({
   uid: uidGenerator("summer-vacation"),
