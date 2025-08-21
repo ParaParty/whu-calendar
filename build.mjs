@@ -129,6 +129,19 @@ function generateLegacyFiles() {
   });
 }
 
+// 生成年份信息文件供前端使用
+function generateYearsInfo() {
+  const years = getAvailableYears();
+  const yearsInfo = {
+    years: years,
+    lastUpdated: new Date().toISOString(),
+    totalYears: years.length
+  };
+  
+  writeFileSync(`${__dirname}/dist/years.json`, JSON.stringify(yearsInfo, null, 2));
+  console.log(`Generated years.json with ${years.length} years: ${years.join(', ')}`);
+}
+
 // 主构建流程
 function main() {
   console.log("Starting build process...");
@@ -141,6 +154,7 @@ function main() {
     // 3. 生成合集文件
     generateAllYears();
     generateLegacyFiles();
+    generateYearsInfo();
     console.log("Build completed!");
   }, 1000);
 }
