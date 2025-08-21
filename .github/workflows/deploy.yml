@@ -42,10 +42,10 @@ jobs:
           node dist/calendar_2025.js
 
       - name: Copy build script
-        run: cp build.js dist/
+        run: cp build.mjs dist/
 
       - name: Generate combined ICS files
-        run: node dist/build.js
+        run: node dist/build.mjs
 
       - name: Copy static files
         run: |
