@@ -2,9 +2,10 @@
 // https://www.whu.edu.cn/info/1118/18862.htm
 // http://uc.whu.edu.cn/info/1039/12145.htm
 
-import { createEvents, EventAttributes } from 'ics';
+import { createEvents } from 'ics';
+import type { EventAttributes } from 'ics';
 import { writeFileSync } from 'fs';
-import { uidGenerateFactory } from "./utils.js";
+
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import "./utils.js";
@@ -338,10 +339,12 @@ events.push({
 })
 
 
-createEvents(events, async (error, value) => {
+createEvents(events, async (error: Error | undefined, value: string | undefined) => {
   if (error) {
     console.log(error);
   }
 
-  writeFileSync(`${__dirname}/${calendar_name}.ics`, value);
+  if (value) {
+    writeFileSync(`${__dirname}/${calendar_name}.ics`, value);
+  }
 })

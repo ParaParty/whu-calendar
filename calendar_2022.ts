@@ -1,7 +1,8 @@
 // https://uc.whu.edu.cn/xl/a2022_2023nxl.htm
 // 五一调休：https://uc.whu.edu.cn/info/1520/16195.htm
 
-import { createEvents, EventAttributes } from "ics";
+import { createEvents } from "ics";
+import type { EventAttributes } from "ics";
 import { writeFileSync } from "fs";
 import { uidGenerateFactory } from "./utils.js";
 import { dirname } from "path";
@@ -407,10 +408,12 @@ events.push({
   end: [2023, 9, 3],
 });
 
-createEvents(events, async (error, value) => {
+createEvents(events, async (error: Error | undefined, value: string | undefined) => {
   if (error) {
     console.log(error);
   }
 
-  writeFileSync(`${__dirname}/${calendar_name}.ics`, value);
+  if (value) {
+    writeFileSync(`${__dirname}/${calendar_name}.ics`, value);
+  }
 });
