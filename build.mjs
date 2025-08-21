@@ -1,24 +1,68 @@
 import pkg from "ics";
 const { createEvents } = pkg;
-import { writeFileSync, readFileSync, existsSync, mkdirSync } from "fs";
+import { writeFileSync, readFileSync, existsSync, mkdirSync, readdirSync } from "fs";
+import { spawnSync } from "child_process";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// 导入所有年份的日历数据
-import "./dist/calendar_2021.js";
-import "./dist/calendar_2022.js";
-import "./dist/calendar_2023.js";
-import "./dist/calendar_2024.js";
-import "./dist/calendar_2025.js";
+// 检测运行环境，确定正确的路径
+const isInDist = __dirname.includes('/dist') || __dirname.includes('\\dist');
+const basePath = isInDist ? '' : './dist/';
+
+// 动态获取所有年份
+function getAvailableYears() {
+  const distDir = `${__dirname}/dist`;
+  const files = readdirSync(distDir);
+  const years = [];
+  
+  files.forEach(file => {
+    const match = file.match(/^calendar_(\d{4})\.js$/);
+    if (match) {
+      years.push(parseInt(match[1]));
+    }
+  });
+  
+  return years.sort((a, b) => a - b);
+}
+
+// 动态获取所有ICS文件名
+function getAvailableICSFiles() {
+  const years = getAvailableYears();
+  return years.map(year => `${year}-${year + 1}.ics`);
+}
+
+// 运行所有年份的日历生成脚本
+function generateIndividualICS() {
+  const years = getAvailableYears();
+  console.log(`Found ${years.length} calendar years: ${years.join(', ')}`);
+  
+  years.forEach(year => {
+    const scriptPath = `calendar_${year}.js`;
+    console.log(`Generating ${year} calendar...`);
+    const result = spawnSync('node', [scriptPath], { 
+      stdio: 'inherit',
+      cwd: `${__dirname}/dist`
+    });
+    if (result.status !== 0) {
+      console.error(`Failed to generate ${year} calendar`);
+      process.exit(1);
+    }
+  });
+}
 
 // 读取生成的ICS文件内容
 function readICSFile(filename) {
-  const filePath = `${__dirname}/dist/${filename}`;
+  const filePath = `${__dirname}/${filename}`;
   if (existsSync(filePath)) {
     return readFileSync(filePath, 'utf8');
+  }
+  // 如果在当前目录找不到，尝试在dist目录中查找
+  const distPath = `${__dirname}/dist/${filename}`;
+  if (existsSync(distPath)) {
+    return readFileSync(distPath, 'utf8');
   }
   return null;
 }
@@ -52,13 +96,8 @@ ${contents.join('')}END:VCALENDAR`;
 
 // 生成所有年份的合集
 function generateAllYears() {
-  const allFiles = [
-    "2021-2022.ics",
-    "2022-2023.ics", 
-    "2023-2024.ics",
-    "2024-2025.ics",
-    "2025-2026.ics"
-  ];
+  const allFiles = getAvailableICSFiles();
+  console.log(`Merging ${allFiles.length} ICS files: ${allFiles.join(', ')}`);
   
   const mergedContent = mergeICSFiles(allFiles);
   if (mergedContent) {
@@ -74,15 +113,14 @@ function generateLegacyFiles() {
     mkdirSync(legacyDir, { recursive: true });
   }
 
-  const yearFiles = [
-    { year: 2021, files: ["2021-2022.ics"] },
-    { year: 2022, files: ["2021-2022.ics", "2022-2023.ics"] },
-    { year: 2023, files: ["2021-2022.ics", "2022-2023.ics", "2023-2024.ics"] },
-    { year: 2024, files: ["2021-2022.ics", "2022-2023.ics", "2023-2024.ics", "2024-2025.ics"] },
-    { year: 2025, files: ["2021-2022.ics", "2022-2023.ics", "2023-2024.ics", "2024-2025.ics", "2025-2026.ics"] }
-  ];
-
-  yearFiles.forEach(({ year, files }) => {
+  const years = getAvailableYears();
+  const allICSFiles = getAvailableICSFiles();
+  
+  years.forEach((year, index) => {
+    // 获取从第一年到当前年份的所有文件
+    const files = allICSFiles.slice(0, index + 1);
+    console.log(`Generating legacy/${year}.ics with files: ${files.join(', ')}`);
+    
     const mergedContent = mergeICSFiles(files);
     if (mergedContent) {
       writeFileSync(`${legacyDir}/${year}.ics`, mergedContent);
@@ -91,9 +129,21 @@ function generateLegacyFiles() {
   });
 }
 
-// 等待一段时间确保所有ICS文件都已生成
-setTimeout(() => {
-  generateAllYears();
-  generateLegacyFiles();
-  console.log("Build completed!");
-}, 2000);
+// 主构建流程
+function main() {
+  console.log("Starting build process...");
+  
+  // 1. 生成各个年份的ICS文件
+  generateIndividualICS();
+  
+  // 2. 等待一下确保文件写入完成
+  setTimeout(() => {
+    // 3. 生成合集文件
+    generateAllYears();
+    generateLegacyFiles();
+    console.log("Build completed!");
+  }, 1000);
+}
+
+// 运行主流程
+main();

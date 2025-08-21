@@ -33,24 +33,12 @@ jobs:
       - name: Compile TypeScript
         run: npx tsc
 
-      - name: Generate individual ICS files
-        run: |
-          node dist/calendar_2021.js
-          node dist/calendar_2022.js
-          node dist/calendar_2023.js
-          node dist/calendar_2024.js
-          node dist/calendar_2025.js
-
-      - name: Copy build script
-        run: cp build.mjs dist/
-
-      - name: Generate combined ICS files
-        run: node dist/build.mjs
+      - name: Generate all ICS files
+        run: npm run build
 
       - name: Copy static files
         run: |
           cp index.html dist/
-          cp document.md dist/
           cp -r assets dist/
 
       - name: Setup Pages
