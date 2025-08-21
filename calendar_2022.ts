@@ -4,6 +4,11 @@
 import { createEvents, EventAttributes } from "ics";
 import { writeFileSync } from "fs";
 import { uidGenerateFactory } from "./utils.js";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 let calendar_name = "武汉大学 2022 - 2023 学年校历";
 let uidGenerator = uidGenerateFactory("whu-calendar-2022");

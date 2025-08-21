@@ -4,7 +4,13 @@
 
 import { createEvents, EventAttributes } from 'ics';
 import { writeFileSync } from 'fs';
-import './utils.js';
+import { uidGenerateFactory } from "./utils.js";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import "./utils.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 let calendar_name = '武汉大学 2021 - 2022 学年校历';
 

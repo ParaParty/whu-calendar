@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武汉大学 iCalendar 校历</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .download-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .download-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        .download-link:hover {
+            background: #2980b9;
+        }
+        .legacy-section {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .legacy-section h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+        .year-link {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 3px;
+            font-size: 14px;
+        }
+        .year-link:hover {
+            background: #e0a800;
+        }
+        .info {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>武汉大学 iCalendar 校历</h1>
+    
+    <div class="info">
+        <p>这是一个包含武汉大学校历的iCalendar文件集合，可以导入到各种日历应用中。</p>
+        <p>使用方法请参考 <a href="document.md">使用文档</a></p>
+    </div>
+
+    <div class="download-section">
+        <h2>📅 完整校历合集</h2>
+        <p>包含从2021年到2025年的所有校历数据：</p>
+        <a href="all.ics" class="download-link">下载完整合集 (all.ics)</a>
+    </div>
+
+    <div class="download-section">
+        <h2>📚 单年度校历</h2>
+        <p>各年度的单独校历文件：</p>
+        <a href="武汉大学 2021 - 2022 学年校历.ics" class="download-link">2021-2022学年</a>
+        <a href="武汉大学 2022 - 2023 学年校历.ics" class="download-link">2022-2023学年</a>
+        <a href="武汉大学 2023 - 2024 学年校历.ics" class="download-link">2023-2024学年</a>
+        <a href="武汉大学 2024 - 2025 学年校历.ics" class="download-link">2024-2025学年</a>
+        <a href="武汉大学 2025 - 2026 学年校历.ics" class="download-link">2025-2026学年</a>
+    </div>
+
+    <div class="legacy-section">
+        <h3>🕰️ 历史版本合集</h3>
+        <p>按年份累积的校历合集（包含从2021年到指定年份的所有数据）：</p>
+        <a href="legacy/2021.ics" class="year-link">2021合集</a>
+        <a href="legacy/2022.ics" class="year-link">2022合集</a>
+        <a href="legacy/2023.ics" class="year-link">2023合集</a>
+        <a href="legacy/2024.ics" class="year-link">2024合集</a>
+        <a href="legacy/2025.ics" class="year-link">2025合集</a>
+    </div>
+
+    <div class="info">
+        <h3>📖 使用说明</h3>
+        <ul>
+            <li><strong>完整合集</strong>：包含所有年份的校历数据，适合新用户</li>
+            <li><strong>单年度校历</strong>：只包含特定学年的校历数据</li>
+            <li><strong>历史版本合集</strong>：包含从2021年到指定年份的累积数据</li>
+        </ul>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
+        <p>数据来源：<a href="https://uc.whu.edu.cn/">武汉大学本科生院</a></p>
+        <p>项目地址：<a href="https://github.com/your-username/whu-calendar">GitHub</a></p>
+    </footer>
+</body>
+</html>

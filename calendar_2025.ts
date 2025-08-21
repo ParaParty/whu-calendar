@@ -3,6 +3,11 @@
 import { createEvents, EventAttributes } from "ics";
 import { writeFileSync } from "fs";
 import { uidGenerateFactory } from "./utils.js";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 let calendar_name = "武汉大学 2025 - 2026 学年校历";
 let uidGenerator = uidGenerateFactory("whu-calendar-2025");
@@ -25,7 +30,7 @@ events.push({
   description: "请仔细对照录取通知书上的要求准备好材料。",
   busyStatus: "FREE",
   start: [2025, 9, 1],
-  end: [2024, 9, 2],
+  end: [2025, 9, 2],
 });
 
 events.push({

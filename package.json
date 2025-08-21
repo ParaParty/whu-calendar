@@ -1,6 +1,9 @@
 {
+  "type": "module",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "build": "npm run tsc && node build.js",
+    "generate": "node dist/calendar_2021.js && node dist/calendar_2022.js && node dist/calendar_2023.js && node dist/calendar_2024.js && node dist/calendar_2025.js"
   },
   "dependencies": {
     "ics": "^2.44.0",
