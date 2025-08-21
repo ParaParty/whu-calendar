@@ -12,7 +12,7 @@ import "./utils.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-let calendar_name = '武汉大学 2021 - 2022 学年校历';
+let calendar_name = '2021-2022';
 
 let events : EventAttributes[] = [{
   title: '所有本科生和在籍研究生开始上课',

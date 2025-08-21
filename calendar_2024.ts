@@ -9,7 +9,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-let calendar_name = "武汉大学 2024 - 2025 学年校历";
+let calendar_name = "2024-2025";
 let uidGenerator = uidGenerateFactory("whu-calendar-2024");
 
 let events: EventAttributes[] = [
