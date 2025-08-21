@@ -76,7 +76,11 @@ function mergeICSFiles(files) {
     if (!content) return "";
     // 提取VEVENT部分，去掉BEGIN:VCALENDAR和END:VCALENDAR
     const events = content.split('BEGIN:VEVENT').slice(1);
-    return events.map(event => 'BEGIN:VEVENT' + event).join('');
+    return events.map(event => {
+      // 去掉每个事件末尾的END:VCALENDAR
+      const cleanEvent = event.replace(/END:VCALENDAR[\s\S]*$/, '');
+      return 'BEGIN:VEVENT' + cleanEvent;
+    }).join('');
   }).filter(content => content.length > 0);
 
   if (contents.length === 0) return "";
