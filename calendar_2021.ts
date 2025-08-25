@@ -2,36 +2,39 @@
 // https://www.whu.edu.cn/info/1118/18862.htm
 // http://uc.whu.edu.cn/info/1039/12145.htm
 
-import { createEvents } from 'ics';
-import type { EventAttributes } from 'ics';
-import { writeFileSync } from 'fs';
+import { createEvents } from 'ics'
+import type { EventAttributes } from 'ics'
+import { writeFileSync } from 'fs'
 
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import "./utils.js";
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import './utils.js'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
-let calendar_name = '2021-2022';
+let calendar_name = '2021-2022'
 
-let events : EventAttributes[] = [{
-  title: '所有本科生和在籍研究生开始上课',
-  description: '时间调整见：https://www.whu.edu.cn/info/1118/18862.htm',
-  busyStatus: 'FREE',
-  start: [2021, 9, 6],
-  end: [2021, 9, 7],
-  calName: calendar_name
-}]
+let events: EventAttributes[] = [
+  {
+    title: '所有本科生和在籍研究生开始上课',
+    description: '时间调整见：https://www.whu.edu.cn/info/1118/18862.htm',
+    busyStatus: 'FREE',
+    start: [2021, 9, 6],
+    end: [2021, 9, 7],
+    calName: calendar_name,
+  },
+]
 
 events.push({
   title: '本科新生注册',
-  description: '请仔细对照录取通知书上的要求准备好材料。时间调整见：https://www.whu.edu.cn/info/1118/18862.htm',
+  description:
+    '请仔细对照录取通知书上的要求准备好材料。时间调整见：https://www.whu.edu.cn/info/1118/18862.htm',
   busyStatus: 'FREE',
   // start: [2021, 8, 19],
   // end: [2021, 8, 20]
   start: [2021, 9, 2],
-  end: [2021, 9, 3]
+  end: [2021, 9, 3],
 })
 
 events.push({
@@ -41,7 +44,7 @@ events.push({
   // start: [2021, 8, 20],
   // end: [2021, 8, 21]
   start: [2021, 9, 3],
-  end: [2021, 9, 6]
+  end: [2021, 9, 6],
 })
 
 // events.push({
@@ -57,7 +60,7 @@ events.push({
   description: '',
   busyStatus: 'FREE',
   start: [2021, 9, 3],
-  end: [2021, 9, 4]
+  end: [2021, 9, 4],
 })
 
 events.push({
@@ -65,7 +68,7 @@ events.push({
   description: '',
   busyStatus: 'FREE',
   start: [2021, 9, 5],
-  end: [2021, 9, 6]
+  end: [2021, 9, 6],
 })
 
 events.push({
@@ -73,7 +76,7 @@ events.push({
   description: '请仔细对照录取通知书上的要求准备好材料。',
   busyStatus: 'FREE',
   start: [2021, 9, 11],
-  end: [2021, 9, 12]
+  end: [2021, 9, 12],
 })
 
 events.push({
@@ -81,7 +84,7 @@ events.push({
   description: '',
   busyStatus: 'FREE',
   start: [2021, 9, 12],
-  end: [2021, 9, 13]
+  end: [2021, 9, 13],
 })
 
 events.push({
@@ -89,24 +92,23 @@ events.push({
   description: '',
   busyStatus: 'FREE',
   start: [2021, 9, 13],
-  end: [2021, 9, 14]
+  end: [2021, 9, 14],
 })
-
 
 ////////////////////////////////////////////////////////////////
 
 /// 2021-2022学年第一学期于2021年9月5日至2022年1月8日，教学周共18周。
 
 for (let i = 0; i < 18; i++) {
-  let weekStart = new Date(2021, 8, 5).addWeek(i);
-  let weekEnd = new Date(2021, 8, 5).addWeek(i + 1);
+  let weekStart = new Date(2021, 8, 5).addWeek(i)
+  let weekEnd = new Date(2021, 8, 5).addWeek(i + 1)
 
   events.push({
     title: `[1] 第 ${i + 1} 周`,
     description: '',
     busyStatus: 'FREE',
     start: weekStart.convertToICSDate(),
-    end: weekEnd.convertToICSDate()
+    end: weekEnd.convertToICSDate(),
   })
 }
 
@@ -117,7 +119,7 @@ events.push({
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 9, 21],
-  end: [2021, 9, 22]
+  end: [2021, 9, 22],
 })
 
 events.push({
@@ -125,7 +127,7 @@ events.push({
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 9, 18],
-  end: [2021, 9, 19]
+  end: [2021, 9, 19],
 })
 
 events.push({
@@ -133,18 +135,15 @@ events.push({
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 9, 20],
-  end: [2021, 9, 21]
+  end: [2021, 9, 21],
 })
-
-
-
 
 events.push({
   title: '国庆节假期',
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 10, 1],
-  end: [2021, 10, 4]
+  end: [2021, 10, 4],
 })
 
 events.push({
@@ -152,7 +151,7 @@ events.push({
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 9, 26],
-  end: [2021, 9, 27]
+  end: [2021, 9, 27],
 })
 
 events.push({
@@ -160,7 +159,7 @@ events.push({
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 10, 6],
-  end: [2021, 10, 7]
+  end: [2021, 10, 7],
 })
 
 events.push({
@@ -168,7 +167,7 @@ events.push({
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 10, 4],
-  end: [2021, 10, 5]
+  end: [2021, 10, 5],
 })
 
 events.push({
@@ -176,7 +175,7 @@ events.push({
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 10, 5],
-  end: [2021, 10, 6]
+  end: [2021, 10, 6],
 })
 
 events.push({
@@ -184,7 +183,7 @@ events.push({
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 10, 9],
-  end: [2021, 10, 10]
+  end: [2021, 10, 10],
 })
 
 events.push({
@@ -192,17 +191,15 @@ events.push({
   description: '时间调整见：http://uc.whu.edu.cn/info/1039/12145.htm',
   busyStatus: 'FREE',
   start: [2021, 10, 7],
-  end: [2021, 10, 8]
+  end: [2021, 10, 8],
 })
-
-
 
 events.push({
   title: '校运会',
   description: '',
   busyStatus: 'FREE',
   start: [2021, 11, 5],
-  end: [2021, 11, 7]
+  end: [2021, 11, 7],
 })
 
 events.push({
@@ -210,7 +207,7 @@ events.push({
   description: '',
   busyStatus: 'FREE',
   start: [2022, 1, 1],
-  end: [2022, 1, 2]
+  end: [2022, 1, 2],
 })
 
 events.push({
@@ -218,7 +215,7 @@ events.push({
   description: '',
   busyStatus: 'FREE',
   start: [2022, 2, 1],
-  end: [2022, 2, 2]
+  end: [2022, 2, 2],
 })
 
 events.push({
@@ -226,7 +223,7 @@ events.push({
   description: '',
   busyStatus: 'FREE',
   start: [2021, 12, 26],
-  end: [2022, 1, 9]
+  end: [2022, 1, 9],
 })
 
 events.push({
@@ -234,7 +231,7 @@ events.push({
   description: '教职工寒假执行学校通知。',
   busyStatus: 'FREE',
   start: [2022, 1, 9],
-  end: [2022, 2, 13]
+  end: [2022, 2, 13],
 })
 
 ////////////////////////////////////////////////////////////////
@@ -242,27 +239,26 @@ events.push({
 /// 2021-2022学年第二学期于2022年2月13日至2022年6月18日，教学周共18周。
 
 for (let i = 0; i < 18; i++) {
-  let weekStart = new Date(2022, 1, 13).addWeek(i);
-  let weekEnd = new Date(2022, 1, 13).addWeek(i + 1);
+  let weekStart = new Date(2022, 1, 13).addWeek(i)
+  let weekEnd = new Date(2022, 1, 13).addWeek(i + 1)
 
   events.push({
     title: `[2] 第 ${i + 1} 周`,
     description: '',
     busyStatus: 'FREE',
     start: weekStart.convertToICSDate(),
-    end: weekEnd.convertToICSDate()
+    end: weekEnd.convertToICSDate(),
   })
 }
 
 ////////////////////////////////////////////////////////////////
-
 
 events.push({
   title: '第二学期返校注册',
   description: '',
   busyStatus: 'FREE',
   start: [2022, 2, 13],
-  end: [2022, 2, 14]
+  end: [2022, 2, 14],
 })
 
 events.push({
@@ -270,7 +266,7 @@ events.push({
   description: '',
   busyStatus: 'FREE',
   start: [2022, 2, 14],
-  end: [2022, 2, 15]
+  end: [2022, 2, 15],
 })
 
 events.push({
@@ -278,7 +274,7 @@ events.push({
   description: '调休细节日后更新',
   busyStatus: 'FREE',
   start: [2022, 4, 5],
-  end: [2022, 4, 6]
+  end: [2022, 4, 6],
 })
 
 events.push({
@@ -286,7 +282,7 @@ events.push({
   description: '调休细节日后更新',
   busyStatus: 'FREE',
   start: [2022, 5, 1],
-  end: [2022, 5, 2]
+  end: [2022, 5, 2],
 })
 
 events.push({
@@ -294,7 +290,7 @@ events.push({
   description: '调休细节日后更新',
   busyStatus: 'FREE',
   start: [2022, 6, 3],
-  end: [2022, 6, 4]
+  end: [2022, 6, 4],
 })
 
 events.push({
@@ -302,21 +298,21 @@ events.push({
   description: '',
   busyStatus: 'FREE',
   start: [2022, 6, 5],
-  end: [2022, 6, 19]
+  end: [2022, 6, 19],
 })
 
 ////////////////////////////////////////////////////////////////
 
 for (let i = 0; i < 4; i++) {
-  let weekStart = new Date(2022, 5, 19).addWeek(i);
-  let weekEnd = new Date(2022, 5, 19).addWeek(i + 1);
+  let weekStart = new Date(2022, 5, 19).addWeek(i)
+  let weekEnd = new Date(2022, 5, 19).addWeek(i + 1)
 
   events.push({
     title: `[3] 第 ${i + 1} 周`,
     description: '',
     busyStatus: 'FREE',
     start: weekStart.convertToICSDate(),
-    end: weekEnd.convertToICSDate()
+    end: weekEnd.convertToICSDate(),
   })
 }
 
@@ -335,16 +331,15 @@ events.push({
   description: '教职工暑假执行学校通知',
   busyStatus: 'FREE',
   start: [2022, 7, 17],
-  end: [2022, 9, 4]
+  end: [2022, 9, 4],
 })
-
 
 createEvents(events, async (error: Error | undefined, value: string | undefined) => {
   if (error) {
-    console.log(error);
+    console.log(error)
   }
 
   if (value) {
-    writeFileSync(`${__dirname}/${calendar_name}.ics`, value);
+    writeFileSync(`${__dirname}/${calendar_name}.ics`, value)
   }
 })
