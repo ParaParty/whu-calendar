@@ -13,9 +13,9 @@ import './utils.js'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-let calendar_name = '2021-2022'
+const calendar_name = '2021-2022'
 
-let events: EventAttributes[] = [
+const events: EventAttributes[] = [
   {
     title: '所有本科生和在籍研究生开始上课',
     description: '时间调整见：https://www.whu.edu.cn/info/1118/18862.htm',
@@ -100,8 +100,8 @@ events.push({
 /// 2021-2022学年第一学期于2021年9月5日至2022年1月8日，教学周共18周。
 
 for (let i = 0; i < 18; i++) {
-  let weekStart = new Date(2021, 8, 5).addWeek(i)
-  let weekEnd = new Date(2021, 8, 5).addWeek(i + 1)
+  const weekStart = new Date(2021, 8, 5).addWeek(i)
+  const weekEnd = new Date(2021, 8, 5).addWeek(i + 1)
 
   events.push({
     title: `[1] 第 ${i + 1} 周`,
@@ -239,8 +239,8 @@ events.push({
 /// 2021-2022学年第二学期于2022年2月13日至2022年6月18日，教学周共18周。
 
 for (let i = 0; i < 18; i++) {
-  let weekStart = new Date(2022, 1, 13).addWeek(i)
-  let weekEnd = new Date(2022, 1, 13).addWeek(i + 1)
+  const weekStart = new Date(2022, 1, 13).addWeek(i)
+  const weekEnd = new Date(2022, 1, 13).addWeek(i + 1)
 
   events.push({
     title: `[2] 第 ${i + 1} 周`,
@@ -304,8 +304,8 @@ events.push({
 ////////////////////////////////////////////////////////////////
 
 for (let i = 0; i < 4; i++) {
-  let weekStart = new Date(2022, 5, 19).addWeek(i)
-  let weekEnd = new Date(2022, 5, 19).addWeek(i + 1)
+  const weekStart = new Date(2022, 5, 19).addWeek(i)
+  const weekEnd = new Date(2022, 5, 19).addWeek(i + 1)
 
   events.push({
     title: `[3] 第 ${i + 1} 周`,

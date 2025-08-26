@@ -1,5 +1,5 @@
 import pkg from 'ics'
-const { createEvents } = pkg
+const { createEvents: _createEvents } = pkg
 import { writeFileSync, readFileSync, existsSync, mkdirSync, readdirSync } from 'fs'
 import { spawnSync } from 'child_process'
 import { dirname } from 'path'
@@ -10,7 +10,7 @@ const __dirname = dirname(__filename)
 
 // 检测运行环境，确定正确的路径
 const isInDist = __dirname.includes('/dist') || __dirname.includes('\\dist')
-const basePath = isInDist ? '' : './dist/'
+const _basePath = isInDist ? '' : './dist/'
 
 // 动态获取所有年份
 function getAvailableYears() {

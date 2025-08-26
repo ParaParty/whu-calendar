@@ -10,10 +10,10 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-let calendar_name = '2025-2026'
-let uidGenerator = uidGenerateFactory('whu-calendar-2025')
+const calendar_name = '2025-2026'
+const uidGenerator = uidGenerateFactory('whu-calendar-2025')
 
-let events: EventAttributes[] = [
+const events: EventAttributes[] = [
   {
     uid: uidGenerator('class-begin'),
     title: '除本科新生外所有本科生和在籍研究生开始上课',
@@ -93,8 +93,8 @@ events.push({
 /// 2025-2026学年第一学期于2025年9月7日至2026年1月17日，教学周共19周。
 
 for (let i = 0; i < 19; i++) {
-  let weekStart = new Date(2025, 9, 7).addWeek(i)
-  let weekEnd = new Date(2025, 9, 7).addWeek(i + 1)
+  const weekStart = new Date(2025, 9, 7).addWeek(i)
+  const weekEnd = new Date(2025, 9, 7).addWeek(i + 1)
 
   events.push({
     uid: uidGenerator(`term-1-week-${i + 1}`),
@@ -176,8 +176,8 @@ events.push({
 /// 2025-2026学年第二学期于2026年3月1日至2026年7月4日，教学周共18周。
 
 for (let i = 0; i < 18; i++) {
-  let weekStart = new Date(2026, 3, 1).addWeek(i)
-  let weekEnd = new Date(2026, 3, 1).addWeek(i + 1)
+  const weekStart = new Date(2026, 3, 1).addWeek(i)
+  const weekEnd = new Date(2026, 3, 1).addWeek(i + 1)
 
   events.push({
     uid: uidGenerator(`term-2-week-${i + 1}`),
@@ -248,8 +248,8 @@ events.push({
 ////////////////////////////////////////////////////////////////
 
 for (let i = 0; i < 2; i++) {
-  let weekStart = new Date(2026, 7, 5).addWeek(i)
-  let weekEnd = new Date(2026, 7, 5).addWeek(i + 1)
+  const weekStart = new Date(2026, 7, 5).addWeek(i)
+  const weekEnd = new Date(2026, 7, 5).addWeek(i + 1)
 
   events.push({
     uid: uidGenerator(`term-3-week-${i + 1}`),

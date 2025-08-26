@@ -11,10 +11,10 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-let calendar_name = '2022-2023'
-let uidGenerator = uidGenerateFactory('whu-calendar-2022')
+const calendar_name = '2022-2023'
+const uidGenerator = uidGenerateFactory('whu-calendar-2022')
 
-let events: EventAttributes[] = [
+const events: EventAttributes[] = [
   {
     uid: uidGenerator('class-begin'),
     title: '所有本科生和在籍研究生开始上课',
@@ -103,8 +103,8 @@ events.push({
 /// 2023-2023学年第一学期于2022年9月4日至2023年1月7日，教学周共18周。
 
 for (let i = 0; i < 18; i++) {
-  let weekStart = new Date(2022, 8, 4).addWeek(i)
-  let weekEnd = new Date(2022, 8, 4).addWeek(i + 1)
+  const weekStart = new Date(2022, 8, 4).addWeek(i)
+  const weekEnd = new Date(2022, 8, 4).addWeek(i + 1)
 
   events.push({
     uid: uidGenerator(`term-1-week-${i + 1}`),
@@ -250,8 +250,8 @@ events.push({
 /// 2022-2023学年第二学期于2023年2月12日至2023年6月17日，教学周共18周。
 
 for (let i = 0; i < 18; i++) {
-  let weekStart = new Date(2023, 1, 12).addWeek(i)
-  let weekEnd = new Date(2023, 1, 12).addWeek(i + 1)
+  const weekStart = new Date(2023, 1, 12).addWeek(i)
+  const weekEnd = new Date(2023, 1, 12).addWeek(i + 1)
 
   events.push({
     uid: uidGenerator(`term-2-week-${i + 1}`),
@@ -376,8 +376,8 @@ events.push({
 ////////////////////////////////////////////////////////////////
 
 for (let i = 0; i < 4; i++) {
-  let weekStart = new Date(2023, 5, 18).addWeek(i)
-  let weekEnd = new Date(2023, 5, 18).addWeek(i + 1)
+  const weekStart = new Date(2023, 5, 18).addWeek(i)
+  const weekEnd = new Date(2023, 5, 18).addWeek(i + 1)
 
   events.push({
     uid: uidGenerator(`term-3-week-${i + 1}`),

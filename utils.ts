@@ -9,9 +9,9 @@ declare global {
 import { nanoid } from 'nanoid'
 
 Date.prototype.convertToICSDate = function (): [number, number, number] {
-  let year = this.getFullYear()
-  let month = this.getMonth() + 1
-  let date = this.getDate()
+  const year = this.getFullYear()
+  const month = this.getMonth() + 1
+  const date = this.getDate()
   return [year, month, date]
 }
 
