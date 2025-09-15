@@ -14,7 +14,7 @@ jobs:
         with:
           filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
           hideName: 'false' # Hide names in htmlTable
-          avatarSize: 50  # Set the avatar size.
+          avatarSize: 50 # Set the avatar size.
           truncate: 6
           avatarMargin: 8
 

@@ -1,463 +1,482 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>武汉大学 iCalendar 校历</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        :root {
-            --primary-color: #1e3a8a;
-            --primary-light: #3b82f6;
-            --secondary-color: #f59e0b;
-            --success-color: #10b981;
-            --info-color: #06b6d4;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
-            --light-bg: #f8fafc;
-            --border-color: #e2e8f0;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
+      :root {
+        --primary-color: #1e3a8a;
+        --primary-light: #3b82f6;
+        --secondary-color: #f59e0b;
+        --success-color: #10b981;
+        --info-color: #06b6d4;
+        --warning-color: #f59e0b;
+        --danger-color: #ef4444;
+        --light-bg: #f8fafc;
+        --border-color: #e2e8f0;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text-primary);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
 
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        color: white;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .main-content {
+        background: white;
+        border-radius: 20px;
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+      }
+
+      .content-wrapper {
+        padding: 40px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid var(--border-color);
+      }
+
+      .section-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 1.2rem;
+        color: white;
+      }
+
+      .section-icon.primary {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+      }
+
+      .section-icon.secondary {
+        background: linear-gradient(135deg, var(--secondary-color), #fbbf24);
+      }
+
+      .section-icon.info {
+        background: linear-gradient(135deg, var(--info-color), #22d3ee);
+      }
+
+      .section-icon.warning {
+        background: linear-gradient(135deg, var(--warning-color), #fbbf24);
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .section-description {
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+      }
+
+      .download-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .download-card {
+        background: var(--light-bg);
+        border: 2px solid var(--border-color);
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: var(--text-primary);
+      }
+
+      .download-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+        border-color: var(--primary-light);
+      }
+
+      .download-card.primary {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        color: white;
+        border-color: var(--primary-color);
+      }
+
+      .download-card.primary:hover {
+        background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+      }
+
+      .download-card.secondary {
+        background: linear-gradient(135deg, var(--secondary-color), #fbbf24);
+        color: white;
+        border-color: var(--secondary-color);
+      }
+
+      .download-card.secondary:hover {
+        background: linear-gradient(135deg, #fbbf24, var(--secondary-color));
+      }
+
+      .download-icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .download-title {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .download-description {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      .info-box {
+        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+        border-left: 4px solid var(--primary-color);
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .info-box h3 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      .info-list {
+        list-style: none;
+      }
+
+      .info-list li {
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .info-list li:before {
+        content: '•';
+        color: var(--primary-color);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      .loading {
+        color: var(--text-secondary);
+        font-style: italic;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .footer {
+        background: var(--light-bg);
+        padding: 30px 40px;
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+        color: var(--text-secondary);
+      }
+
+      .footer a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 15px;
+      }
+
+      @media (max-width: 768px) {
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            color: white;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .main-content {
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
+          padding: 20px 15px;
         }
 
         .content-wrapper {
-            padding: 40px;
+          padding: 25px;
         }
 
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .section-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-size: 1.2rem;
-            color: white;
-        }
-
-        .section-icon.primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-        }
-
-        .section-icon.secondary {
-            background: linear-gradient(135deg, var(--secondary-color), #fbbf24);
-        }
-
-        .section-icon.info {
-            background: linear-gradient(135deg, var(--info-color), #22d3ee);
-        }
-
-        .section-icon.warning {
-            background: linear-gradient(135deg, var(--warning-color), #fbbf24);
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .section-description {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
+        .header h1 {
+          font-size: 2rem;
         }
 
         .download-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .download-card {
-            background: var(--light-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .download-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-            border-color: var(--primary-light);
-        }
-
-        .download-card.primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        .download-card.primary:hover {
-            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
-        }
-
-        .download-card.secondary {
-            background: linear-gradient(135deg, var(--secondary-color), #fbbf24);
-            color: white;
-            border-color: var(--secondary-color);
-        }
-
-        .download-card.secondary:hover {
-            background: linear-gradient(135deg, #fbbf24, var(--secondary-color));
-        }
-
-        .download-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .download-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .download-description {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .info-box {
-            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-            border-left: 4px solid var(--primary-color);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .info-box h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .info-list {
-            list-style: none;
-        }
-
-        .info-list li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .info-list li:before {
-            content: "•";
-            color: var(--primary-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .loading {
-            color: var(--text-secondary);
-            font-style: italic;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .footer {
-            background: var(--light-bg);
-            padding: 30px 40px;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            color: var(--text-secondary);
-        }
-
-        .footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
+          grid-template-columns: 1fr;
         }
 
         .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 15px;
+          flex-direction: column;
+          gap: 15px;
         }
+      }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .content-wrapper {
-                padding: 25px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .download-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
+      .fade-in {
+        animation: fadeIn 0.6s ease-in;
+      }
 
-        .fade-in {
-            animation: fadeIn 0.6s ease-in;
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>武汉大学 iCalendar 校历</h1>
-            <p>专业的校历数据集合，支持导入各种日历应用，助您轻松管理学术日程</p>
+      <div class="header">
+        <h1>武汉大学 iCalendar 校历</h1>
+        <p>专业的校历数据集合，支持导入各种日历应用，助您轻松管理学术日程</p>
+      </div>
+
+      <div class="main-content">
+        <div class="content-wrapper">
+          <div class="section">
+            <div class="section-header">
+              <div class="section-icon primary">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <h2 class="section-title">完整校历合集</h2>
+            </div>
+            <p class="section-description">
+              包含从2021年到2025年的所有校历数据，适合新用户一次性导入所有年份的校历信息。
+            </p>
+            <div class="download-grid">
+              <a href="all.ics" class="download-card primary">
+                <i class="fas fa-download download-icon"></i>
+                <div class="download-title">下载完整合集</div>
+                <div class="download-description">all.ics</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-header">
+              <div class="section-icon secondary">
+                <i class="fas fa-calendar-day"></i>
+              </div>
+              <h2 class="section-title">单年度校历</h2>
+            </div>
+            <p class="section-description">
+              各年度的单独校历文件，您可以根据需要选择特定学年的校历数据。
+            </p>
+            <div id="individual-years" class="download-grid loading">
+              <div>正在加载可用年份...</div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-header">
+              <div class="section-icon warning">
+                <i class="fas fa-history"></i>
+              </div>
+              <h2 class="section-title">历史版本合集</h2>
+            </div>
+            <p class="section-description">
+              按年份累积的校历合集，包含从2021年到指定年份的所有数据，适合逐步更新。
+            </p>
+            <div id="legacy-years" class="download-grid loading">
+              <div>正在加载历史版本...</div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h3><i class="fas fa-info-circle"></i> 使用说明</h3>
+            <ul class="info-list">
+              <li><strong>完整合集</strong>：包含所有年份的校历数据，适合新用户一次性导入</li>
+              <li><strong>单年度校历</strong>：只包含特定学年的校历数据，文件更小更精确</li>
+              <li><strong>历史版本合集</strong>：包含从2021年到指定年份的累积数据，适合逐步更新</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="main-content">
-            <div class="content-wrapper">
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-icon primary">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <h2 class="section-title">完整校历合集</h2>
-                    </div>
-                    <p class="section-description">包含从2021年到2025年的所有校历数据，适合新用户一次性导入所有年份的校历信息。</p>
-                    <div class="download-grid">
-                        <a href="all.ics" class="download-card primary">
-                            <i class="fas fa-download download-icon"></i>
-                            <div class="download-title">下载完整合集</div>
-                            <div class="download-description">all.ics</div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-icon secondary">
-                            <i class="fas fa-calendar-day"></i>
-                        </div>
-                        <h2 class="section-title">单年度校历</h2>
-                    </div>
-                    <p class="section-description">各年度的单独校历文件，您可以根据需要选择特定学年的校历数据。</p>
-                    <div id="individual-years" class="download-grid loading">
-                        <div>正在加载可用年份...</div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-icon warning">
-                            <i class="fas fa-history"></i>
-                        </div>
-                        <h2 class="section-title">历史版本合集</h2>
-                    </div>
-                    <p class="section-description">按年份累积的校历合集，包含从2021年到指定年份的所有数据，适合逐步更新。</p>
-                    <div id="legacy-years" class="download-grid loading">
-                        <div>正在加载历史版本...</div>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <h3><i class="fas fa-info-circle"></i> 使用说明</h3>
-                    <ul class="info-list">
-                        <li><strong>完整合集</strong>：包含所有年份的校历数据，适合新用户一次性导入</li>
-                        <li><strong>单年度校历</strong>：只包含特定学年的校历数据，文件更小更精确</li>
-                        <li><strong>历史版本合集</strong>：包含从2021年到指定年份的累积数据，适合逐步更新</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer">
-                <div class="footer-links">
-                    <a href="https://github.com/ParaParty/whu-calendar/blob/master/document.md" target="_blank" rel="noopener"><i class="fas fa-book"></i> 使用文档</a>
-                    <a href="https://uc.whu.edu.cn/" target="_blank" rel="noopener"><i class="fas fa-university"></i> 武汉大学本科生院</a>
-                    <a href="https://github.com/ParaParty/whu-calendar" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-                <p>数据来源：武汉大学本科生院 | 项目地址：GitHub</p>
-            </div>
+        <div class="footer">
+          <div class="footer-links">
+            <a
+              href="https://github.com/ParaParty/whu-calendar/blob/master/document.md"
+              target="_blank"
+              rel="noopener"
+              ><i class="fas fa-book"></i> 使用文档</a
+            >
+            <a href="https://uc.whu.edu.cn/" target="_blank" rel="noopener"
+              ><i class="fas fa-university"></i> 武汉大学本科生院</a
+            >
+            <a href="https://github.com/ParaParty/whu-calendar" target="_blank" rel="noopener"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+          </div>
+          <p>数据来源：武汉大学本科生院 | 项目地址：GitHub</p>
         </div>
+      </div>
     </div>
 
     <script>
-        // 动态获取可用年份的函数
-        async function getAvailableYears() {
-            try {
-                // 尝试从 dist 目录获取年份信息
-                const response = await fetch('./dist/years.json');
-                if (response.ok) {
-                    const data = await response.json();
-                    return data.years || [];
-                }
-            } catch (error) {
-                console.log('无法获取 years.json，尝试其他方法');
-            }
-
-            // 备用方法：通过检查文件是否存在来推断年份
-            const years = [];
-            const currentYear = new Date().getFullYear();
-            
-            // 检查从2021年到当前年份的文件
-            for (let year = 2021; year <= currentYear + 1; year++) {
-                try {
-                    const response = await fetch(`${year}-${year + 1}.ics`, { method: 'HEAD' });
-                    if (response.ok) {
-                        years.push(year);
-                    }
-                } catch (error) {
-                    // 文件不存在，继续检查下一个
-                }
-            }
-            
-            return years;
+      // 动态获取可用年份的函数
+      async function getAvailableYears() {
+        try {
+          // 尝试从 dist 目录获取年份信息
+          const response = await fetch('./dist/years.json')
+          if (response.ok) {
+            const data = await response.json()
+            return data.years || []
+          }
+        } catch (error) {
+          console.log('无法获取 years.json，尝试其他方法')
         }
 
-        // 生成单年度校历链接
-        function generateIndividualYearLinks(years) {
-            const container = document.getElementById('individual-years');
-            container.innerHTML = '';
-            
-            years.forEach(year => {
-                const link = document.createElement('a');
-                link.href = `${year}-${year + 1}.ics`;
-                link.className = 'download-card secondary fade-in';
-                link.innerHTML = `
+        // 备用方法：通过检查文件是否存在来推断年份
+        const years = []
+        const currentYear = new Date().getFullYear()
+
+        // 检查从2021年到当前年份的文件
+        for (let year = 2021; year <= currentYear + 1; year++) {
+          try {
+            const response = await fetch(`${year}-${year + 1}.ics`, { method: 'HEAD' })
+            if (response.ok) {
+              years.push(year)
+            }
+          } catch (error) {
+            // 文件不存在，继续检查下一个
+          }
+        }
+
+        return years
+      }
+
+      // 生成单年度校历链接
+      function generateIndividualYearLinks(years) {
+        const container = document.getElementById('individual-years')
+        container.innerHTML = ''
+
+        years.forEach((year) => {
+          const link = document.createElement('a')
+          link.href = `${year}-${year + 1}.ics`
+          link.className = 'download-card secondary fade-in'
+          link.innerHTML = `
                     <i class="fas fa-calendar-day download-icon"></i>
                     <div class="download-title">${year}-${year + 1}学年</div>
                     <div class="download-description">单年度校历</div>
-                `;
-                container.appendChild(link);
-            });
-        }
+                `
+          container.appendChild(link)
+        })
+      }
 
-        // 生成历史版本合集链接
-        function generateLegacyYearLinks(years) {
-            const container = document.getElementById('legacy-years');
-            container.innerHTML = '';
-            
-            years.forEach(year => {
-                const link = document.createElement('a');
-                link.href = `legacy/${year}.ics`;
-                link.className = 'download-card fade-in';
-                link.innerHTML = `
+      // 生成历史版本合集链接
+      function generateLegacyYearLinks(years) {
+        const container = document.getElementById('legacy-years')
+        container.innerHTML = ''
+
+        years.forEach((year) => {
+          const link = document.createElement('a')
+          link.href = `legacy/${year}.ics`
+          link.className = 'download-card fade-in'
+          link.innerHTML = `
                     <i class="fas fa-archive download-icon"></i>
                     <div class="download-title">${year}合集</div>
                     <div class="download-description">历史版本</div>
-                `;
-                container.appendChild(link);
-            });
-        }
+                `
+          container.appendChild(link)
+        })
+      }
 
-        // 初始化页面
-        async function initializePage() {
-            try {
-                const years = await getAvailableYears();
-                
-                if (years.length > 0) {
-                    generateIndividualYearLinks(years);
-                    generateLegacyYearLinks(years);
-                } else {
-                    // 如果没有找到年份，显示默认的硬编码年份
-                    const defaultYears = [2021, 2022, 2023, 2024, 2025];
-                    generateIndividualYearLinks(defaultYears);
-                    generateLegacyYearLinks(defaultYears);
-                }
-            } catch (error) {
-                console.error('初始化页面时出错:', error);
-                // 显示默认年份作为后备
-                const defaultYears = [2021, 2022, 2023, 2024, 2025];
-                generateIndividualYearLinks(defaultYears);
-                generateLegacyYearLinks(defaultYears);
-            }
-        }
+      // 初始化页面
+      async function initializePage() {
+        try {
+          const years = await getAvailableYears()
 
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', initializePage);
+          if (years.length > 0) {
+            generateIndividualYearLinks(years)
+            generateLegacyYearLinks(years)
+          } else {
+            // 如果没有找到年份，显示默认的硬编码年份
+            const defaultYears = [2021, 2022, 2023, 2024, 2025]
+            generateIndividualYearLinks(defaultYears)
+            generateLegacyYearLinks(defaultYears)
+          }
+        } catch (error) {
+          console.error('初始化页面时出错:', error)
+          // 显示默认年份作为后备
+          const defaultYears = [2021, 2022, 2023, 2024, 2025]
+          generateIndividualYearLinks(defaultYears)
+          generateLegacyYearLinks(defaultYears)
+        }
+      }
+
+      // 页面加载完成后初始化
+      document.addEventListener('DOMContentLoaded', initializePage)
     </script>
-</body>
+  </body>
 </html>
