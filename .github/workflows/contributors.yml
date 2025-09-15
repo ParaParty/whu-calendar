@@ -18,11 +18,11 @@ jobs:
           truncate: 6
           avatarMargin: 8
 
-      - name: Modify htmlTable readme.md
+      - name: Modify htmlTable README.md
         uses: jaywcjlove/github-action-modify-file-content@main
         with:
           message: update contributors[no ci]
           openDelimiter: '<!--GAMFC_DELIMITER-->'
           closeDelimiter: '<!--GAMFC_DELIMITER_END-->'
-          path: readme.md
+          path: README.md
           body: '${{steps.contributors.outputs.htmlList}}'
