@@ -93,8 +93,8 @@ events.push({
 /// 2025-2026学年第一学期于2025年9月7日至2026年1月17日，教学周共19周。
 
 for (let i = 0; i < 19; i++) {
-  let weekStart = new Date(2025, 9, 7).addWeek(i);
-  let weekEnd = new Date(2025, 9, 7).addWeek(i + 1);
+  let weekStart = new Date(2025, 8, 7).addWeek(i);
+  let weekEnd = new Date(2025, 8, 7).addWeek(i + 1);
 
   events.push({
     uid: uidGenerator(`term-1-week-${i + 1}`),
