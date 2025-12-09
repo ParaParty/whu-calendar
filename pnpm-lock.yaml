@@ -14,13 +14,15 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: ^16.4.1
-    version: 16.18.101
+    specifier: ^24.10.2
+    version: 24.10.2
 
 packages:
 
-  /@types/node@16.18.101:
-    resolution: {integrity: sha512-AAsx9Rgz2IzG8KJ6tXd6ndNkVcu+GYB6U/SnFAaokSPNx2N7dcIIfnighYUNumvj6YS2q39Dejz5tT0NCV7CWA==}
+  /@types/node@24.10.2:
+    resolution: {integrity: sha512-WOhQTZ4G8xZ1tjJTvKOpyEVSGgOTvJAfDK3FNFgELyaTpzhdgHVHeqW8V+UJvzF5BT+/B54T/1S2K6gd9c7bbA==}
+    dependencies:
+      undici-types: 7.16.0
     dev: true
 
   /ics@3.8.1:
@@ -63,6 +65,10 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
     dev: false
+
+  /undici-types@7.16.0:
+    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
+    dev: true
 
   /yup@1.7.1:
     resolution: {integrity: sha512-GKHFX2nXul2/4Dtfxhozv701jLQHdf6J34YDh2cEkpqoo8le5Mg6/LrdseVLrFarmFygZTlfIhHx/QKfb/QWXw==}
