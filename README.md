@@ -33,12 +33,14 @@
 ### 本地开发
 
 1. **克隆项目**
+
    ```bash
    git clone https://github.com/ParaParty/whu-calendar.git
    cd whu-calendar
    ```
 
 2. **安装依赖**
+
    ```bash
    npm install
    # 或使用 pnpm
@@ -46,6 +48,7 @@
    ```
 
 3. **构建项目**
+
    ```bash
    npm run build
    ```
@@ -134,6 +137,7 @@ whu-calendar/
 - 感谢所有贡献者的支持和建议
 
 <!--GAMFC_DELIMITER--><a href="https://github.com/HsukqiLee" title="Hsukqi Lee"><img src="https://avatars.githubusercontent.com/u/79034142?v=4" width="50;" alt="Hsukqi Lee"/></a>
+
 <a href="https://github.com/ExerciseBook" title="Eric_Lian"><img src="https://avatars.githubusercontent.com/u/6327311?v=4" width="50;" alt="Eric_Lian"/></a>
 <a href="https://github.com/little-weakduck" title="Little Weakduck"><img src="https://avatars.githubusercontent.com/u/83490374?v=4" width="50;" alt="Little Weakduck"/></a>
 <a href="https://github.com/misakayuuki" title="misa想变猫猫娘"><img src="https://avatars.githubusercontent.com/u/45150398?v=4" width="50;" alt="misa想变猫猫娘"/></a><!--GAMFC_DELIMITER_END-->
@@ -146,5 +150,3 @@ whu-calendar/
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ParaParty/whu-calendar&type=Date)](https://star-history.com/#ParaParty/whu-calendar&Date)
-
-

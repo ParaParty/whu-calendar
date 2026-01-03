@@ -94,8 +94,8 @@ events.push({
 /// Date第二个参数从0开始，因此9月使用8。
 
 for (let i = 0; i < 19; i++) {
-  let weekStart = new Date(2025, 8, 7).addWeek(i);
-  let weekEnd = new Date(2025, 8, 7).addWeek(i + 1);
+  const weekStart = new Date(2025, 8, 7).addWeek(i)
+  const weekEnd = new Date(2025, 8, 7).addWeek(i + 1)
 
   events.push({
     uid: uidGenerator(`term-1-week-${i + 1}`),
