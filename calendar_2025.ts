@@ -177,8 +177,8 @@ events.push({
 /// 2025-2026学年第二学期于2026年3月1日至2026年7月4日，教学周共18周。
 
 for (let i = 0; i < 18; i++) {
-  const weekStart = new Date(2026, 3, 1).addWeek(i)
-  const weekEnd = new Date(2026, 3, 1).addWeek(i + 1)
+  const weekStart = new Date(2026, 2, 2).addWeek(i)
+  const weekEnd = new Date(2026, 2, 2).addWeek(i + 1)
 
   events.push({
     uid: uidGenerator(`term-2-week-${i + 1}`),
